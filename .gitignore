@@ -1,0 +1,86 @@
+# ====================================
+# 🌐 General
+# ====================================
+.DS_Store
+*.log
+*.tmp
+*.swp
+
+# ====================================
+# 🐍 Python bytecode (if ever used)
+# ====================================
+*.pyc
+__pycache__/
+
+# ====================================
+# 🛠️ IDEs & Editors
+# ====================================
+.idea/                      # Android Studio / IntelliJ
+*.iml
+*.ipr
+*.iws
+
+.vscode/                   # VS Code settings (optional, uncomment if personal)
+*.code-workspace
+
+# ====================================
+# 🔧 Flutter / Dart Tools
+# ====================================
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+
+# ====================================
+# 📦 Dependency & Generated Files
+# ====================================
+build/
+generated_plugin_registrant.dart
+
+# ====================================
+# 📱 iOS-specific
+# ====================================
+ios/Flutter/.last_build_id
+ios/Pods/
+ios/.symlinks/
+ios/.dart_tool/
+ios/Flutter/Flutter.framework/
+ios/Flutter/Flutter.podspec
+
+# ====================================
+# 🤖 Android-specific
+# ====================================
+android/.gradle/
+android/captures/
+android/app/debug/
+android/app/profile/
+android/app/release/
+
+# ====================================
+# 🧪 Test & Coverage
+# ====================================
+coverage/
+*.lcov
+
+# ====================================
+# 🔐 Sensitive or User-Specific Files
+# ====================================
+.env
+.env.*
+*.keystore
+*.jks
+*.p12
+*.pem
+
+# ====================================
+# 📄 Documentation
+# ====================================
+**/doc/api/
+
+# ====================================
+# 🧠 Model / LLM Artifacts (optional)
+# ====================================
+models/
+downloads/
