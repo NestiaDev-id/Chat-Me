@@ -1,0 +1,67 @@
+[
+    {
+      "id": "tinyllama-1b",
+      "name": "TinyLLaMA 1.1B",
+      "size_mb": 420,
+      "required_ram_mb": 1500,
+      "description": "Ultra-small LLaMA variant, suitable for offline usage with minimal RAM.",
+      "download_url": "https://huggingface.co/TheBloke/TinyLlama-1.1B-Chat-v1.0-GGUF/resolve/main/tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf"
+    },
+    {
+      "id": "phi-1.5",
+      "name": "Phi 1.5 (2.7B)",
+      "size_mb": 1100,
+      "required_ram_mb": 2500,
+      "description": "Lightweight and efficient model by Microsoft for simple reasoning and Q&A.",
+      "download_url": "https://huggingface.co/TheBloke/phi-1_5-GGUF/resolve/main/phi-1.5.Q4_K_M.gguf"
+    },
+    {
+      "id": "llama2-7b",
+      "name": "LLaMA 2 (7B)",
+      "size_mb": 3500,
+      "required_ram_mb": 6000,
+      "description": "Fast and accurate for most tasks.",
+      "download_url": "https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGUF/resolve/main/llama-2-7b-chat.Q4_K_M.gguf"
+    },
+    {
+      "id": "mistral",
+      "name": "Mistral 7B",
+      "size_mb": 4200,
+      "required_ram_mb": 6500,
+      "description": "Efficient general-purpose model.",
+      "download_url": "https://huggingface.co/TheBloke/Mistral-7B-v0.1-GGUF/resolve/main/mistral-7b-v0.1.Q4_K_M.gguf"
+    },
+    {
+      "id": "openhermes-2.5",
+      "name": "OpenHermes 2.5 (Mistral)",
+      "size_mb": 4400,
+      "required_ram_mb": 6500,
+      "description": "Instruction-tuned Mistral model, performs well in chat.",
+      "download_url": "https://huggingface.co/TheBloke/OpenHermes-2.5-Mistral-7B-GGUF/resolve/main/openhermes-2.5-mistral-7b.Q4_K_M.gguf"
+    },
+    {
+      "id": "zephyr-7b-beta",
+      "name": "Zephyr 7B Beta",
+      "size_mb": 4700,
+      "required_ram_mb": 7000,
+      "description": "Chat-tuned and human-aligned, friendly and responsive model.",
+      "download_url": "https://huggingface.co/TheBloke/zephyr-7B-beta-GGUF/resolve/main/zephyr-7b-beta.Q4_K_M.gguf"
+    },
+    {
+      "id": "llama2-13b",
+      "name": "LLaMA 2 (13B)",
+      "size_mb": 6800,
+      "required_ram_mb": 12000,
+      "description": "More capable version of LLaMA for larger devices with more RAM.",
+      "download_url": "https://huggingface.co/TheBloke/Llama-2-13B-chat-GGUF/resolve/main/llama-2-13b-chat.Q4_K_M.gguf"
+    },
+    {
+      "id": "mixtral-8x7b",
+      "name": "Mixtral 8x7B MoE",
+      "size_mb": 12500,
+      "required_ram_mb": 16000,
+      "description": "Mixture-of-Experts model (2 experts active), very high quality and fast routing.",
+      "download_url": "https://huggingface.co/TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF/resolve/main/mixtral-8x7b-instruct-v0.1.Q4_K_M.gguf"
+    }
+  ]
+  

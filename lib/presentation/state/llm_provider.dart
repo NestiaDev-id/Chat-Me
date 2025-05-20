@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:chat_me/data/models/llm_model.dart';
+import 'package:chat_me/data/models/llm_models.dart';
 
 class LlmProvider with ChangeNotifier {
   List<LlmModel> _availableModels = [];

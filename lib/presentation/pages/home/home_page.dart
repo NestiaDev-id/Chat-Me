@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:chat_me/core/services/llm_loader.dart';
-import 'package:chat_me/data/models/llm_model.dart';
-import 'package:go_router/go_router.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -11,58 +8,94 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  late Future<List<LlmModel>> _modelsFuture;
-
-  @override
-  void initState() {
-    super.initState();
-    _modelsFuture = LlmLoader.loadModels();
-  }
+  final TextEditingController _promptController = TextEditingController();
+  String _selectedModel = 'Model A'; // Contoh default
+  List<String> _models = ['Model A', 'Model B', 'Model C'];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Pilih Model LLM'),
+        title: Text('Chat LLM'),
+        actions: [
+          // Dropdown untuk ganti model
+          DropdownButton<String>(
+            value: _selectedModel,
+            icon: const Icon(Icons.arrow_drop_down, color: Colors.black),
+            dropdownColor: Colors.blue[800], // warna biru lebih gelap
+            underline: Container(), // hilangkan garis bawah
+            onChanged: (value) {
+              if (value != null) {
+                setState(() {
+                  _selectedModel = value;
+                });
+              }
+            },
+            items:
+                _models.map((model) {
+                  return DropdownMenuItem(
+                    value: model,
+                    child: Text(
+                      model,
+                      style: const TextStyle(color: Colors.white),
+                    ),
+                  );
+                }).toList(),
+          ),
+        ],
       ),
-      body: FutureBuilder<List<LlmModel>>(
-        future: _modelsFuture,
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
-          }
-          if (snapshot.hasError) {
-            return Center(child: Text('Gagal memuat model: ${snapshot.error}'));
-          }
-          final models = snapshot.data ?? [];
-
-          if (models.isEmpty) {
-            return const Center(child: Text('Tidak ada model tersedia'));
-          }
-
-          return ListView.builder(
-            itemCount: models.length,
-            itemBuilder: (context, index) {
-              final model = models[index];
-              return Card(
-                margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                child: ListTile(
-                  title: Text(model.name),
-                  subtitle: Text(
-                    '${(model.sizeMb / 1024).toStringAsFixed(2)} GB - RAM req: ${(model.requiredRamMb / 1024).toStringAsFixed(2)} GB',
-                  ),
-                  trailing: const Icon(Icons.arrow_forward_ios),
-                  onTap: () {
-                    // Navigasi ke halaman model detail, kirim id model sebagai param
-                    // context.goNamed('model_detail', queryParams: {'id': model.id});
-                    context.goNamed('model_detail', extra: model.id);
-
+      body: Column(
+        children: [
+          Expanded(
+            child: Container(
+              // Nanti bisa tambahkan chat messages di sini
+              color: Colors.grey[200],
+              child: Center(child: Text('Chat messages appear here')),
+            ),
+          ),
+          const Divider(height: 1),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+            child: Row(
+              children: [
+                // Tombol upload
+                IconButton(
+                  icon: const Icon(Icons.attach_file),
+                  onPressed: () {
+                    // TODO: implement file picker
                   },
                 ),
-              );
-            },
-          );
-        },
+                IconButton(
+                  icon: const Icon(Icons.mic),
+                  onPressed: () {
+                    // TODO: implement voice recording
+                  },
+                ),
+                Expanded(
+                  child: TextField(
+                    controller: _promptController,
+                    decoration: const InputDecoration(
+                      hintText: 'Tulis pertanyaan atau prompt kamu...',
+                      border: InputBorder.none,
+                    ),
+                    minLines: 1,
+                    maxLines: 5,
+                  ),
+                ),
+                IconButton(
+                  icon: const Icon(Icons.send),
+                  onPressed: () {
+                    final prompt = _promptController.text.trim();
+                    if (prompt.isNotEmpty) {
+                      // TODO: kirim prompt ke backend / LLM
+                      _promptController.clear();
+                    }
+                  },
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

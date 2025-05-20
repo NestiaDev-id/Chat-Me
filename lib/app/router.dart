@@ -22,9 +22,6 @@ class AppRouter {
         builder: (context, state) {
           final modelId = state.extra as String? ?? '';
 
-
-
-          
           // Bisa kirim modelId ke halaman detail via argumen
           return ModelDetailPage(modelId: modelId);
         },
@@ -39,8 +36,6 @@ class AppRouter {
         name: 'chat',
         builder: (context, state) {
           final modelId = state.extra as String? ?? '';
-
-
 
           return ChatPage(modelId: modelId);
         },

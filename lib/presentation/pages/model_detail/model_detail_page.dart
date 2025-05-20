@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:chat_me/core/services/llm_loader.dart';
-import 'package:chat_me/data/models/llm_model.dart';
+import 'package:chat_me/data/models/llm_models.dart';
 import 'package:go_router/go_router.dart';
 
 class ModelDetailPage extends StatefulWidget {
