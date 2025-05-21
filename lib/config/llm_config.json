@@ -1,59 +1,128 @@
 [
-    {
-      "id": "tinyllama-1b",
-      "name": "TinyLLaMA 1.1B",
-      "size_mb": 637,
-      "required_ram_mb": 1500,
-      "description": "TinyLLaMA 1.1B is an ultra-lightweight variant of the powerful LLaMA family designed for efficient offline use, requiring only about 1.5 GB of RAM. Despite its compact size (~637 MB), it performs a variety of NLP tasks like text generation and question answering, making it ideal for devices with limited resources, developers needing fast local inference, or applications with privacy concerns.",
-      "download_url": "https://huggingface.co/TheBloke/TinyLlama-1.1B-Chat-v1.0-GGUF/resolve/main/tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf"
-    },
-    {
-      "id": "llama2-7b",
-      "name": "LLaMA 2 (7B)",
-      "size_mb": 3500,
-      "required_ram_mb": 6000,
-      "description": "LLaMA 2 (7B) is a fast and accurate language model suitable for a wide range of tasks, requiring around 6 GB of RAM and a 3.5 GB model size, making it ideal for users who want a powerful yet efficient LLM for general use.",
-      "download_url": "https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGUF/resolve/main/llama-2-7b-chat.Q4_K_M.gguf"
-    },
-    {
-      "id": "mistral",
-      "name": "Mistral 7B",
-      "size_mb": 4200,
-      "required_ram_mb": 6500,
-      "description": "Mistral 7B is an efficient general-purpose language model optimized for diverse applications, balancing performance and resource usage with about 6.5 GB RAM and 4.2 GB model size.",
-      "download_url": "https://huggingface.co/TheBloke/Mistral-7B-v0.1-GGUF/resolve/main/mistral-7b-v0.1.Q4_K_M.gguf"
-    },
-    {
-      "id": "openhermes-2.5",
-      "name": "OpenHermes 2.5 (Mistral)",
-      "size_mb": 4400,
-      "required_ram_mb": 6500,
-      "description": "OpenHermes 2.5 (Mistral) is an instruction-tuned version of the Mistral 7B model, designed for excellent chat performance and user interaction, requiring roughly 6.5 GB RAM and 4.4 GB storage.",
-      "download_url": "https://huggingface.co/TheBloke/OpenHermes-2.5-Mistral-7B-GGUF/resolve/main/openhermes-2.5-mistral-7b.Q4_K_M.gguf"
-    },
-    {
-      "id": "zephyr-7b-beta",
-      "name": "Zephyr 7B Beta",
-      "size_mb": 4700,
-      "required_ram_mb": 7000,
-      "description": "Zephyr 7B Beta is a chat-tuned, human-aligned language model designed to be friendly and responsive, ideal for conversational AI applications, requiring about 7 GB RAM and 4.7 GB storage.",
-      "download_url": "https://huggingface.co/TheBloke/zephyr-7B-beta-GGUF/resolve/main/zephyr-7b-beta.Q4_K_M.gguf"
-    },
-    {
-      "id": "llama2-13b",
-      "name": "LLaMA 2 (13B)",
-      "size_mb": 6800,
-      "required_ram_mb": 12000,
-      "description": "LLaMA 2 (13B) is a more powerful version of the LLaMA series, suitable for larger devices with more RAM (12 GB) and bigger storage needs (6.8 GB), delivering enhanced capabilities for complex tasks.",
-      "download_url": "https://huggingface.co/TheBloke/Llama-2-13B-chat-GGUF/resolve/main/llama-2-13b-chat.Q4_K_M.gguf"
-    },
-    {
-      "id": "mixtral-8x7b",
-      "name": "Mixtral 8x7B MoE",
-      "size_mb": 12500,
-      "required_ram_mb": 16000,
-      "description": "Mixtral 8x7B MoE is a high-quality Mixture-of-Experts model with 2 active experts, providing fast and efficient routing for demanding workloads, requiring substantial resources with 16 GB RAM and 12.5 GB storage.",
-      "download_url": "https://huggingface.co/TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF/resolve/main/mixtral-8x7b-instruct-v0.1.Q4_K_M.gguf"
-    }
-  ]
-  
+  {
+    "id": "tinyllama-1b",
+    "name": "TinyLLaMA 1.1B",
+    "category": "Text Generation",
+    "size_mb": 637,
+    "required_ram_mb": 1500,
+    "description": "Ultra-lightweight language model for fast, offline NLP tasks like text generation and question answering on resource-limited devices.",
+    "download_url": "https://huggingface.co/TheBloke/TinyLlama-1.1B-Chat-v1.0-GGUF/resolve/main/tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf"
+  },
+  {
+    "id": "llama2-7b",
+    "name": "LLaMA 2 (7B)",
+    "category": "Text Generation",
+    "size_mb": 3500,
+    "required_ram_mb": 6000,
+    "description": "High-performance general-purpose model for various NLP tasks with relatively efficient RAM usage.",
+    "download_url": "https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGUF/resolve/main/llama-2-7b-chat.Q4_K_M.gguf"
+  },
+  {
+    "id": "mistral",
+    "name": "Mistral 7B",
+    "category": "Text Generation",
+    "size_mb": 4200,
+    "required_ram_mb": 6500,
+    "description": "General-purpose model optimized for instruction-following and interactive performance with good efficiency.",
+    "download_url": "https://huggingface.co/TheBloke/Mistral-7B-v0.1-GGUF/resolve/main/mistral-7b-v0.1.Q4_K_M.gguf"
+  },
+  {
+    "id": "openhermes-2.5",
+    "name": "OpenHermes 2.5 (Mistral)",
+    "category": "Chat Assistant",
+    "size_mb": 4400,
+    "required_ram_mb": 6500,
+    "description": "Instruction-tuned Mistral variant for better chat performance, user interaction, and safety alignment.",
+    "download_url": "https://huggingface.co/TheBloke/OpenHermes-2.5-Mistral-7B-GGUF/resolve/main/openhermes-2.5-mistral-7b.Q4_K_M.gguf"
+  },
+  {
+    "id": "zephyr-7b-beta",
+    "name": "Zephyr 7B Beta",
+    "category": "Chat Assistant",
+    "size_mb": 4700,
+    "required_ram_mb": 7000,
+    "description": "Conversational model fine-tuned for friendly, aligned human interaction and assistant use cases.",
+    "download_url": "https://huggingface.co/TheBloke/zephyr-7B-beta-GGUF/resolve/main/zephyr-7b-beta.Q4_K_M.gguf"
+  },
+  {
+    "id": "llama2-13b",
+    "name": "LLaMA 2 (13B)",
+    "category": "Text Generation",
+    "size_mb": 6800,
+    "required_ram_mb": 12000,
+    "description": "Powerful general-purpose LLM capable of handling more complex reasoning and generation tasks.",
+    "download_url": "https://huggingface.co/TheBloke/Llama-2-13B-chat-GGUF/resolve/main/llama-2-13b-chat.Q4_K_M.gguf"
+  },
+  {
+    "id": "mixtral-8x7b",
+    "name": "Mixtral 8x7B MoE",
+    "category": "Advanced Reasoning",
+    "size_mb": 12500,
+    "required_ram_mb": 16000,
+    "description": "Mixture-of-Experts model using 2 active experts for improved performance on complex tasks with good efficiency.",
+    "download_url": "https://huggingface.co/TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF/resolve/main/mixtral-8x7b-instruct-v0.1.Q4_K_M.gguf"
+  },
+  {
+    "id": "chroma-v10",
+    "name": "Chroma Unlocked v10",
+    "category": "Text-to-Image",
+    "size_mb": 7070,
+    "required_ram_mb": 12000,
+    "description": "Text-to-image generation model based on modified FLUX.1 architecture with image rendering from text prompts.",
+    "download_url": "https://huggingface.co/silveroxides/Chroma-GGUF/resolve/main/chroma-unlocked-v10/chroma-unlocked-v10-Q3_K_L.gguf"
+  },
+  {
+    "id": "qwen3-30b-a6b16",
+    "name": "Qwen3-30B-A6B-16-Extreme",
+    "category": "Text Generation, Reasoning",
+    "size_mb": 32500,
+    "required_ram_mb": 64000,
+    "description": "Extreme-performance MoE model with 16 active experts for deep reasoning, instruction following, and code generation.",
+    "download_url": "https://huggingface.co/mradermacher/Qwen3-30B-A6B-16-Extreme-GGUF/resolve/main/Qwen3-30B-A6B-16-Extreme.Q8_0.gguf"
+  },
+  {
+    "id": "am-thinking-v1",
+    "name": "AM-Thinking v1",
+    "category": "Advanced Reasoning, Code Generation",
+    "size_mb": 34800,
+    "required_ram_mb": 64000,
+    "description": "32B parameter model fine-tuned for high-level logical reasoning, benchmarking well against other top-tier MoE models.",
+    "download_url": "https://huggingface.co/a-m-team/AM-Thinking-v1-gguf/resolve/main/AM-Thinking-v1.Q8_0.gguf"
+  },
+  {
+    "id": "gemma-3-27b",
+    "name": "Gemma 3-27B",
+    "category": "Image-Text-to-Text",
+    "size_mb": 34800,
+    "required_ram_mb": 64000,
+    "description": "Gemma is a family of lightweight, state-of-the-art open models from Google, built from the same research and technology used to create the Gemini models. Gemma 3 models are multimodal, handling text and image input and generating text output, with open weights for both pre-trained variants and instruction-tuned variants. Gemma 3 has a large, 128K context window, multilingual support in over 140 languages, and is available in more sizes than previous versions. Gemma 3 models are well-suited for a variety of text generation and image understanding tasks, including question answering, summarization, and reasoning. Their relatively small size makes it possible to deploy them in environments with limited resources such as laptops, desktops or your own cloud infrastructure, democratizing access to state of the art AI models and helping foster innovation for everyone.",
+    "download_url": "https://huggingface.co/google/gemma-3-27b-it-qat-q4_0-gguf/blob/main/gemma-3-27b-it-q4_0.gguf"
+  },
+  {
+    "id": "QuantStack/Wan2.1-VACE-14B-GGUF",
+    "name": "Wan2.1-VACE-14B 4-bit",
+    "category": "Text-to-Video",
+    "size_mb": 10600,
+    "required_ram_mb": 16000,
+    "description": "Wan2.1-VACE-14B 4-bit adalah model text-to-video hasil kompresi kuantisasi 4-bit dari model besar Wan2.1-VACE-14B. Model ini dirancang untuk efisiensi maksimal dengan ukuran file yang lebih kecil, cocok digunakan di perangkat dengan sumber daya terbatas seperti smartphone Android. Meskipun kuantisasi mengurangi ukuran dan kebutuhan memori, model ini tetap dapat digunakan untuk tugas-tugas dasar generasi video berbasis teks.",
+    "download_url": "https://huggingface.co/QuantStack/Wan2.1-VACE-14B-GGUF/blob/main/Wan2.1-VACE-14B-Q4_K_S.gguf"
+  },
+  {
+    "id": "QuantStack/Wan2.1-VACE-14B-GGUF",
+    "name": "Wan2.1-VACE-14B 8-bit",
+    "category": "Text-to-Video",
+    "size_mb": 18700,
+    "required_ram_mb": 37000,
+    "description": "Wan2.1-VACE-14B 8-bit adalah versi kuantisasi menengah dari model text-to-video Wan2.1-VACE-14B. Dengan kualitas yang lebih tinggi dibanding versi 4-bit, model ini cocok untuk aplikasi Android kelas menengah ke atas yang memiliki RAM lebih besar. Digunakan untuk menghasilkan video berdasarkan input teks dengan akurasi dan kualitas yang lebih baik.",
+    "download_url": "https://huggingface.co/QuantStack/Wan2.1-VACE-14B-GGUF/blob/main/Wan2.1-VACE-14B-Q8_0.gguf"
+  },
+  {
+    "id": "QuantStack/Wan2.1-VACE-14B-GGUF",
+    "name": "Wan2.1-VACE-14B 16-bit",
+    "category": "Text-to-Video",
+    "size_mb": 34700,
+    "required_ram_mb": 104000,
+    "description": "Wan2.1-VACE-14B 16-bit adalah versi presisi penuh dari model text-to-video Wan2.1-VACE-14B, yang menyediakan hasil paling akurat dan realistis. Model ini membutuhkan perangkat dengan kapasitas RAM besar dan ideal untuk pengujian, pengembangan, atau penggunaan di server edge atau perangkat flagship Android.",
+    "download_url": "https://huggingface.co/QuantStack/Wan2.1-VACE-14B-GGUF/blob/main/Wan2.1-VACE-14B-BF16.gguf"
+  }
+]
