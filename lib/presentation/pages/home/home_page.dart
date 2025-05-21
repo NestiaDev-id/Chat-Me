@@ -1,5 +1,7 @@
 import 'package:chat_me/core/services/llm_loader.dart';
 import 'package:chat_me/data/models/llm_models.dart';
+import 'package:chat_me/presentation/pages/device_info/device_info_page.dart';
+import 'package:chat_me/presentation/pages/model_detail/model_detail_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -23,7 +25,20 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Chat LLM')),
+      appBar: AppBar(
+        title: const Text('Chat LLM'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.help_outline), // icon tanda tanya
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const DeviceInfoPage()),
+              );
+            },
+          ),
+        ],
+      ),
       body: FutureBuilder<List<LlmModel>>(
         future: _modelsFuture,
         builder: (context, snapshot) {
@@ -82,7 +97,15 @@ class _HomePageState extends State<HomePage> {
                     alignment: Alignment.center,
                     child: TextButton.icon(
                       onPressed: () {
-                        // TODO: Implement download logic
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder:
+                                (context) => ModelDetailPage(
+                                  modelId: _selectedModel!.id,
+                                ),
+                          ),
+                        );
                       },
                       icon: const Icon(Icons.download),
                       label: const Text('Download'),
