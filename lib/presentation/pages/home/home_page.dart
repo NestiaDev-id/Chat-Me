@@ -24,6 +24,17 @@ class _HomePageState extends State<HomePage> {
     _modelsFuture = LlmLoader.loadModels();
   }
 
+  String formatSize(int sizeMb) {
+    if (sizeMb < 1024) {
+      return '$sizeMb MB';
+    } else if (sizeMb < 10240) {
+      // kurang dari 10 GB, tampilkan 2 desimal
+      return '${(sizeMb / 1024).toStringAsFixed(2)} GB';
+    } else {
+      return '${(sizeMb / 1024).toStringAsFixed(1)} GB'; // untuk ukuran sangat besar pakai 1 desimal saja
+    }
+  }
+
   Future<String> runPromptDummy(String prompt) async {
     await Future.delayed(Duration(seconds: 1)); // simulasi loading
     return 'Ini jawaban untuk: "$prompt"';
@@ -81,8 +92,8 @@ class _HomePageState extends State<HomePage> {
                               return DropdownMenuItem(
                                 value: model,
                                 child: Text(
-                                  '${model.name} - ${(model.sizeMb / 1024).toStringAsFixed(2)} GB',
-                                  style: const TextStyle(fontSize: 13),
+                                  '${model.name} - ${formatSize(model.sizeMb)} | RAM: ${model.requiredRamMb} MB',
+                                  style: const TextStyle(fontSize: 12),
                                   overflow: TextOverflow.ellipsis,
                                 ),
                               );

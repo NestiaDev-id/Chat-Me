@@ -86,8 +86,8 @@
     "category": "Advanced Reasoning, Code Generation",
     "size_mb": 34800,
     "required_ram_mb": 64000,
-    "description": "32B parameter model fine-tuned for high-level logical reasoning, benchmarking well against other top-tier MoE models.",
-    "download_url": "https://huggingface.co/a-m-team/AM-Thinking-v1-gguf/resolve/main/AM-Thinking-v1.Q8_0.gguf"
+    "description": "AM-Thinking v1 adalah model bahasa 32B yang dioptimalkan untuk penalaran logis dan generasi kode tingkat lanjut. Dibangun di atas Qwen2.5-32B, model ini mengungguli banyak model Mixture-of-Experts (MoE) jauh lebih besar dalam berbagai benchmark seperti AIME2024 dan LiveCodeBench. Keberhasilannya berasal dari proses fine-tuning pasca-pelatihan yang ketat, termasuk SFT dan RL, menggunakan data publik yang telah disaring dan divalidasi. Dengan performa reasoning tinggi dan efisiensi lebih baik dari model besar, AM-Thinking v1 ideal untuk riset dan aplikasi lanjutan yang membutuhkan kemampuan logika kuat tanpa beban infrastruktur berlebih.",
+   "download_url": "https://huggingface.co/a-m-team/AM-Thinking-v1-gguf/resolve/main/AM-Thinking-v1.Q8_0.gguf"
   },
   {
     "id": "gemma-3-27b",
