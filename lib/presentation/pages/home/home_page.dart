@@ -3,6 +3,7 @@ import 'package:chat_me/data/models/llm_models.dart';
 import 'package:chat_me/presentation/pages/device_info/device_info_page.dart';
 import 'package:chat_me/presentation/pages/model_detail/model_detail_page.dart';
 import 'package:flutter/material.dart';
+import 'package:chat_me/presentation/pages/chat/chat_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -15,11 +16,17 @@ class _HomePageState extends State<HomePage> {
   final TextEditingController _promptController = TextEditingController();
   late Future<List<LlmModel>> _modelsFuture;
   LlmModel? _selectedModel;
+  final List<ChatMessage> _chatMessages = [];
 
   @override
   void initState() {
     super.initState();
     _modelsFuture = LlmLoader.loadModels();
+  }
+
+  Future<String> runPromptDummy(String prompt) async {
+    await Future.delayed(Duration(seconds: 1)); // simulasi loading
+    return 'Ini jawaban untuk: "$prompt"';
   }
 
   @override
@@ -117,7 +124,7 @@ class _HomePageState extends State<HomePage> {
               Expanded(
                 child: Container(
                   color: Colors.grey[200],
-                  child: const Center(child: Text('Chat messages appear here')),
+                  child: ChatMessagesWidget(messages: _chatMessages),
                 ),
               ),
               const Divider(height: 1),
@@ -150,14 +157,24 @@ class _HomePageState extends State<HomePage> {
                     ),
                     IconButton(
                       icon: const Icon(Icons.send),
-                      onPressed: () {
+                      onPressed: () async {
                         final prompt = _promptController.text.trim();
                         if (prompt.isNotEmpty) {
-                          // TODO: Kirim prompt ke LLM sesuai model yang dipilih
-                          print(
-                            'Model: ${_selectedModel?.name}, Prompt: $prompt',
-                          );
+                          setState(() {
+                            _chatMessages.add(
+                              ChatMessage(text: prompt, isUser: true),
+                            );
+                          });
+
                           _promptController.clear();
+
+                          final response = await runPromptDummy(prompt);
+
+                          setState(() {
+                            _chatMessages.add(
+                              ChatMessage(text: response, isUser: false),
+                            );
+                          });
                         }
                       },
                     ),

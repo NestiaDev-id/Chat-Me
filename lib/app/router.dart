@@ -31,15 +31,15 @@ class AppRouter {
         name: 'device_info',
         builder: (context, state) => const DeviceInfoPage(),
       ),
-      GoRoute(
-        path: '/chat',
-        name: 'chat',
-        builder: (context, state) {
-          final modelId = state.extra as String? ?? '';
+      // GoRoute(
+      //   path: '/chat',
+      //   name: 'chat',
+      //   builder: (context, state) {
+      //     final modelId = state.extra as String? ?? '';
 
-          return ChatPage(modelId: modelId);
-        },
-      ),
+      //     return ChatPage(modelId: modelId);
+      //   },
+      // ),
     ],
   );
 }
