@@ -2,25 +2,17 @@
     {
       "id": "tinyllama-1b",
       "name": "TinyLLaMA 1.1B",
-      "size_mb": 420,
+      "size_mb": 637,
       "required_ram_mb": 1500,
-      "description": "Ultra-small LLaMA variant, suitable for offline usage with minimal RAM.",
+      "description": "TinyLLaMA 1.1B is an ultra-lightweight variant of the powerful LLaMA family designed for efficient offline use, requiring only about 1.5 GB of RAM. Despite its compact size (~637 MB), it performs a variety of NLP tasks like text generation and question answering, making it ideal for devices with limited resources, developers needing fast local inference, or applications with privacy concerns.",
       "download_url": "https://huggingface.co/TheBloke/TinyLlama-1.1B-Chat-v1.0-GGUF/resolve/main/tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf"
-    },
-    {
-      "id": "phi-1.5",
-      "name": "Phi 1.5 (2.7B)",
-      "size_mb": 1100,
-      "required_ram_mb": 2500,
-      "description": "Lightweight and efficient model by Microsoft for simple reasoning and Q&A.",
-      "download_url": "https://huggingface.co/TheBloke/phi-1_5-GGUF/resolve/main/phi-1.5.Q4_K_M.gguf"
     },
     {
       "id": "llama2-7b",
       "name": "LLaMA 2 (7B)",
       "size_mb": 3500,
       "required_ram_mb": 6000,
-      "description": "Fast and accurate for most tasks.",
+      "description": "LLaMA 2 (7B) is a fast and accurate language model suitable for a wide range of tasks, requiring around 6 GB of RAM and a 3.5 GB model size, making it ideal for users who want a powerful yet efficient LLM for general use.",
       "download_url": "https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGUF/resolve/main/llama-2-7b-chat.Q4_K_M.gguf"
     },
     {
@@ -28,7 +20,7 @@
       "name": "Mistral 7B",
       "size_mb": 4200,
       "required_ram_mb": 6500,
-      "description": "Efficient general-purpose model.",
+      "description": "Mistral 7B is an efficient general-purpose language model optimized for diverse applications, balancing performance and resource usage with about 6.5 GB RAM and 4.2 GB model size.",
       "download_url": "https://huggingface.co/TheBloke/Mistral-7B-v0.1-GGUF/resolve/main/mistral-7b-v0.1.Q4_K_M.gguf"
     },
     {
@@ -36,7 +28,7 @@
       "name": "OpenHermes 2.5 (Mistral)",
       "size_mb": 4400,
       "required_ram_mb": 6500,
-      "description": "Instruction-tuned Mistral model, performs well in chat.",
+      "description": "OpenHermes 2.5 (Mistral) is an instruction-tuned version of the Mistral 7B model, designed for excellent chat performance and user interaction, requiring roughly 6.5 GB RAM and 4.4 GB storage.",
       "download_url": "https://huggingface.co/TheBloke/OpenHermes-2.5-Mistral-7B-GGUF/resolve/main/openhermes-2.5-mistral-7b.Q4_K_M.gguf"
     },
     {
@@ -44,7 +36,7 @@
       "name": "Zephyr 7B Beta",
       "size_mb": 4700,
       "required_ram_mb": 7000,
-      "description": "Chat-tuned and human-aligned, friendly and responsive model.",
+      "description": "Zephyr 7B Beta is a chat-tuned, human-aligned language model designed to be friendly and responsive, ideal for conversational AI applications, requiring about 7 GB RAM and 4.7 GB storage.",
       "download_url": "https://huggingface.co/TheBloke/zephyr-7B-beta-GGUF/resolve/main/zephyr-7b-beta.Q4_K_M.gguf"
     },
     {
@@ -52,7 +44,7 @@
       "name": "LLaMA 2 (13B)",
       "size_mb": 6800,
       "required_ram_mb": 12000,
-      "description": "More capable version of LLaMA for larger devices with more RAM.",
+      "description": "LLaMA 2 (13B) is a more powerful version of the LLaMA series, suitable for larger devices with more RAM (12 GB) and bigger storage needs (6.8 GB), delivering enhanced capabilities for complex tasks.",
       "download_url": "https://huggingface.co/TheBloke/Llama-2-13B-chat-GGUF/resolve/main/llama-2-13b-chat.Q4_K_M.gguf"
     },
     {
@@ -60,7 +52,7 @@
       "name": "Mixtral 8x7B MoE",
       "size_mb": 12500,
       "required_ram_mb": 16000,
-      "description": "Mixture-of-Experts model (2 experts active), very high quality and fast routing.",
+      "description": "Mixtral 8x7B MoE is a high-quality Mixture-of-Experts model with 2 active experts, providing fast and efficient routing for demanding workloads, requiring substantial resources with 16 GB RAM and 12.5 GB storage.",
       "download_url": "https://huggingface.co/TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF/resolve/main/mixtral-8x7b-instruct-v0.1.Q4_K_M.gguf"
     }
   ]
