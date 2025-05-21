@@ -100,6 +100,17 @@ class _ModelDetailPageState extends State<ModelDetailPage> {
     );
   }
 
+  String formatSize(int sizeMb) {
+    if (sizeMb < 1024) {
+      return '$sizeMb MB';
+    } else if (sizeMb < 10240) {
+      // kurang dari 10 GB, tampilkan 2 desimal
+      return '${(sizeMb / 1024).toStringAsFixed(2)} GB';
+    } else {
+      return '${(sizeMb / 1024).toStringAsFixed(1)} GB'; // untuk ukuran sangat besar pakai 1 desimal saja
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -127,10 +138,8 @@ class _ModelDetailPageState extends State<ModelDetailPage> {
                   style: Theme.of(context).textTheme.headlineMedium,
                 ),
                 const SizedBox(height: 12),
-                Text('Ukuran: ${(model.sizeMb / 1024).toStringAsFixed(2)} GB'),
-                Text(
-                  'RAM: ${(model.requiredRamMb / 1024).toStringAsFixed(2)} GB',
-                ),
+                Text('Ukuran: ${formatSize(model.sizeMb)}'),
+                Text('RAM: ${formatSize(model.requiredRamMb)}'),
                 Text('Deskripsi: ${model.description}'),
                 const Spacer(),
                 Row(
