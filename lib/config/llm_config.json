@@ -99,30 +99,30 @@
     "download_url": "https://huggingface.co/google/gemma-3-27b-it-qat-q4_0-gguf/blob/main/gemma-3-27b-it-q4_0.gguf"
   },
   {
-    "id": "QuantStack/Wan2.1-VACE-14B-GGUF",
+    "id": "QuantStack/Wan2.1-VACE-14B-4Bit-GGUF",
     "name": "Wan2.1-VACE-14B 4-bit",
     "category": "Text-to-Video",
     "size_mb": 10600,
     "required_ram_mb": 16000,
     "description": "Wan2.1-VACE-14B 4-bit adalah model text-to-video hasil kompresi kuantisasi 4-bit dari model besar Wan2.1-VACE-14B. Model ini dirancang untuk efisiensi maksimal dengan ukuran file yang lebih kecil, cocok digunakan di perangkat dengan sumber daya terbatas seperti smartphone Android. Meskipun kuantisasi mengurangi ukuran dan kebutuhan memori, model ini tetap dapat digunakan untuk tugas-tugas dasar generasi video berbasis teks.",
-    "download_url": "https://huggingface.co/QuantStack/Wan2.1-VACE-14B-GGUF/blob/main/Wan2.1-VACE-14B-Q4_K_S.gguf"
+    "download_url": "https://huggingface.co/QuantStack/Wan2.1-VACE-14B-GGUF/resolve/main/Wan2.1-VACE-14B-Q4_K_S.gguf"
   },
   {
-    "id": "QuantStack/Wan2.1-VACE-14B-GGUF",
+    "id": "QuantStack/Wan2.1-VACE-14B-8Bit-GGUF",
     "name": "Wan2.1-VACE-14B 8-bit",
     "category": "Text-to-Video",
     "size_mb": 18700,
     "required_ram_mb": 37000,
     "description": "Wan2.1-VACE-14B 8-bit adalah versi kuantisasi menengah dari model text-to-video Wan2.1-VACE-14B. Dengan kualitas yang lebih tinggi dibanding versi 4-bit, model ini cocok untuk aplikasi Android kelas menengah ke atas yang memiliki RAM lebih besar. Digunakan untuk menghasilkan video berdasarkan input teks dengan akurasi dan kualitas yang lebih baik.",
-    "download_url": "https://huggingface.co/QuantStack/Wan2.1-VACE-14B-GGUF/blob/main/Wan2.1-VACE-14B-Q8_0.gguf"
+    "download_url": "https://huggingface.co/QuantStack/Wan2.1-VACE-14B-GGUF/resolve/main/Wan2.1-VACE-14B-Q8_0.gguf"
   },
   {
-    "id": "QuantStack/Wan2.1-VACE-14B-GGUF",
+    "id": "QuantStack/Wan2.1-VACE-14B-16Bit-GGUF",
     "name": "Wan2.1-VACE-14B 16-bit",
     "category": "Text-to-Video",
     "size_mb": 34700,
     "required_ram_mb": 104000,
     "description": "Wan2.1-VACE-14B 16-bit adalah versi presisi penuh dari model text-to-video Wan2.1-VACE-14B, yang menyediakan hasil paling akurat dan realistis. Model ini membutuhkan perangkat dengan kapasitas RAM besar dan ideal untuk pengujian, pengembangan, atau penggunaan di server edge atau perangkat flagship Android.",
-    "download_url": "https://huggingface.co/QuantStack/Wan2.1-VACE-14B-GGUF/blob/main/Wan2.1-VACE-14B-BF16.gguf"
+    "download_url": "hhttps://huggingface.co/QuantStack/Wan2.1-VACE-14B-GGUF/resolve/main/Wan2.1-VACE-14B-BF16.gguf"
   }
 ]
