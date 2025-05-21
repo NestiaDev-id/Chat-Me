@@ -1,3 +1,5 @@
+import 'package:chat_me/core/services/llm_loader.dart';
+import 'package:chat_me/data/models/llm_models.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -9,93 +11,139 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final TextEditingController _promptController = TextEditingController();
-  String _selectedModel = 'Model A'; // Contoh default
-  List<String> _models = ['Model A', 'Model B', 'Model C'];
+  late Future<List<LlmModel>> _modelsFuture;
+  LlmModel? _selectedModel;
+
+  @override
+  void initState() {
+    super.initState();
+    _modelsFuture = LlmLoader.loadModels();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Chat LLM'),
-        actions: [
-          // Dropdown untuk ganti model
-          DropdownButton<String>(
-            value: _selectedModel,
-            icon: const Icon(Icons.arrow_drop_down, color: Colors.black),
-            dropdownColor: Colors.blue[800], // warna biru lebih gelap
-            underline: Container(), // hilangkan garis bawah
-            onChanged: (value) {
-              if (value != null) {
-                setState(() {
-                  _selectedModel = value;
-                });
-              }
-            },
-            items:
-                _models.map((model) {
-                  return DropdownMenuItem(
-                    value: model,
-                    child: Text(
-                      model,
-                      style: const TextStyle(color: Colors.white),
+      appBar: AppBar(title: const Text('Chat LLM')),
+      body: FutureBuilder<List<LlmModel>>(
+        future: _modelsFuture,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator());
+          }
+
+          if (snapshot.hasError) {
+            return Center(child: Text('Gagal memuat model: ${snapshot.error}'));
+          }
+
+          final models = snapshot.data ?? [];
+          if (models.isEmpty) {
+            return const Center(child: Text('Tidak ada model tersedia'));
+          }
+
+          _selectedModel ??= models.first;
+
+          return Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+
+                children: [
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: DropdownButtonFormField<LlmModel>(
+                        value: _selectedModel,
+                        isExpanded: true,
+                        items:
+                            models.map((model) {
+                              return DropdownMenuItem(
+                                value: model,
+                                child: Text(
+                                  '${model.name} - ${(model.sizeMb / 1024).toStringAsFixed(2)} GB',
+                                  style: const TextStyle(fontSize: 13),
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              );
+                            }).toList(),
+                        onChanged: (model) {
+                          setState(() {
+                            _selectedModel = model;
+                          });
+                        },
+                        decoration: const InputDecoration(
+                          labelText: 'Pilih Model LLM',
+                          border: OutlineInputBorder(),
+                        ),
+                      ),
                     ),
-                  );
-                }).toList(),
-          ),
-        ],
-      ),
-      body: Column(
-        children: [
-          Expanded(
-            child: Container(
-              // Nanti bisa tambahkan chat messages di sini
-              color: Colors.grey[200],
-              child: Center(child: Text('Chat messages appear here')),
-            ),
-          ),
-          const Divider(height: 1),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-            child: Row(
-              children: [
-                // Tombol upload
-                IconButton(
-                  icon: const Icon(Icons.attach_file),
-                  onPressed: () {
-                    // TODO: implement file picker
-                  },
-                ),
-                IconButton(
-                  icon: const Icon(Icons.mic),
-                  onPressed: () {
-                    // TODO: implement voice recording
-                  },
-                ),
-                Expanded(
-                  child: TextField(
-                    controller: _promptController,
-                    decoration: const InputDecoration(
-                      hintText: 'Tulis pertanyaan atau prompt kamu...',
-                      border: InputBorder.none,
-                    ),
-                    minLines: 1,
-                    maxLines: 5,
                   ),
+                  const SizedBox(width: 8),
+                  Align(
+                    alignment: Alignment.center,
+                    child: TextButton.icon(
+                      onPressed: () {
+                        // TODO: Implement download logic
+                      },
+                      icon: const Icon(Icons.download),
+                      label: const Text('Download'),
+                    ),
+                  ),
+                ],
+              ),
+
+              Expanded(
+                child: Container(
+                  color: Colors.grey[200],
+                  child: const Center(child: Text('Chat messages appear here')),
                 ),
-                IconButton(
-                  icon: const Icon(Icons.send),
-                  onPressed: () {
-                    final prompt = _promptController.text.trim();
-                    if (prompt.isNotEmpty) {
-                      // TODO: kirim prompt ke backend / LLM
-                      _promptController.clear();
-                    }
-                  },
+              ),
+              const Divider(height: 1),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                child: Row(
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.attach_file),
+                      onPressed: () {
+                        // TODO: implement file picker
+                      },
+                    ),
+                    IconButton(
+                      icon: const Icon(Icons.mic),
+                      onPressed: () {
+                        // TODO: implement voice recording
+                      },
+                    ),
+                    Expanded(
+                      child: TextField(
+                        controller: _promptController,
+                        decoration: const InputDecoration(
+                          hintText: 'Tulis pertanyaan atau prompt kamu...',
+                          border: InputBorder.none,
+                        ),
+                        minLines: 1,
+                        maxLines: 5,
+                      ),
+                    ),
+                    IconButton(
+                      icon: const Icon(Icons.send),
+                      onPressed: () {
+                        final prompt = _promptController.text.trim();
+                        if (prompt.isNotEmpty) {
+                          // TODO: Kirim prompt ke LLM sesuai model yang dipilih
+                          print(
+                            'Model: ${_selectedModel?.name}, Prompt: $prompt',
+                          );
+                          _promptController.clear();
+                        }
+                      },
+                    ),
+                  ],
                 ),
-              ],
-            ),
-          ),
-        ],
+              ),
+            ],
+          );
+        },
       ),
     );
   }
