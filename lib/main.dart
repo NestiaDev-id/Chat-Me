@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart'; // jika pakai Riverpod
 import 'app/router.dart';
-import 'presentation/state/llm_provider.dart';
 
 void main() {
   runApp(

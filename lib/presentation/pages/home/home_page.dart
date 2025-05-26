@@ -165,10 +165,7 @@ class _HomePageState extends State<HomePage> {
             return const Center(child: Text('No models available'));
           }
 
-          if (_selectedModel == null) {
-            _selectedModel = models.first;
-            // No need to call _checkAndLoadModel here again, it's called in initState
-          }
+          _selectedModel ??= models.first;
 
           return Column(
             children: [

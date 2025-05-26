@@ -1,11 +1,9 @@
 // lib/app/router.dart
-import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../presentation/pages/home/home_page.dart';
 import '../presentation/pages/model_detail/model_detail_page.dart';
 import '../presentation/pages/device_info/device_info_page.dart';
-import '../presentation/pages/chat/chat_page.dart';
 
 class AppRouter {
   static final router = GoRouter(
